@@ -29,7 +29,7 @@ Junto a los atributos que cada una va a tener
 
 - ¿Qué herramientas se usaron (papel, pizarra, draw.io, Astah)?
 
-Utilizamos para el diagrama entidad relacion (ERD), mermaid.
+Utilizamos para el diagrama entidad relacion (ERD) la aplicación web Mermaid. Para el _sketch_, utilizamos una aplicación de dibujo y para el modelo entidad-relación usamos draw.io.
 
 - ¿Qué parte del trabajo se alcanzó a desarrollar?
 
