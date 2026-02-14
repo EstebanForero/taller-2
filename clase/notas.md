@@ -37,6 +37,7 @@ Desarrollamos el diagrama entidad relacion, y el modelado entidad relacion
 
 ## 🧩 Boceto inicial del modelo
 
+<img width="845" height="1280" alt="image" src="https://github.com/user-attachments/assets/547cb7db-a64d-4c52-a8b8-4ece9ac56f0d" />
 
 
 ## 🔁 Tareas definidas para complementar el taller
