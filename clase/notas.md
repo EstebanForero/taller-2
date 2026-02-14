@@ -48,7 +48,7 @@ Las responsabilidades acordadas entre los miembros del equipo se distribuyeron d
 |----------------|-------------|----------------|
 | Modelado final en draw.io | Carlos Cruz Pavas | 14/02 |
 | Redacción del informe     | Esteban Fernando Forero Montejo | 14/02 |
-| Revisión del informe      | Santiago Sabogal Millan | 14/02
+| Revisión del informe      | Santiago Sabogal Millan | 14/02 |
 | Investigación y referencias | Juan Felipe Cepeda Uribe | 14/02 |
 
 ---
