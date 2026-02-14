@@ -21,18 +21,19 @@ Discutimos el formato en el que se va a presentar y las herramientas a utilizar,
 
 ## 🧩 Boceto inicial del modelo
 
-> (Puede insertar aquí una imagen del boceto, una captura de pantalla o un diagrama preliminar si ya fue hecho en digital)
+
 
 ## 🔁 Tareas definidas para complementar el taller
 
-Anote las responsabilidades acordadas entre los miembros del equipo para completar la entrega final:
+Las responsabilidades acordadas entre los miembros del equipo se distribuyeron de la siguiente manera:
 
 | Tarea asignada | Responsable | Fecha estimada |
 |----------------|-------------|----------------|
-| Modelado final en draw.io | Nombre 1 | 10/08 |
-| Redacción del informe     | Nombre 2 | 11/08 |
-| Investigación y referencias | Nombre 3 | 12/08 |
+| Modelado final en draw.io | Carlos Cruz Pavas | 14/02 |
+| Redacción del informe     | Esteban Fernando Forero Montejo | 14/02 |
+| Revisión del informe      | Santiago Sabogal Millan | 14/02
+| Investigación y referencias | Juan Felipe Cepeda Uribe | 14/02 |
 
 ---
 
-_Este documento resume el trabajo colaborativo realizado durante la sesión del taller X en el curso AREM - Universidad de La Sabana._
+_Este documento resume el trabajo colaborativo realizado durante la sesión del taller 2 en el curso AREM - Universidad de La Sabana._
