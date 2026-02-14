@@ -40,6 +40,11 @@ Desarrollamos el diagrama entidad relacion, y el modelado entidad relacion
 <img width="845" height="1280" alt="image" src="https://github.com/user-attachments/assets/547cb7db-a64d-4c52-a8b8-4ece9ac56f0d" />
 
 
+## Diagrama Entidad Relacion (ERD)
+
+<img width="1412" height="886" alt="image" src="https://github.com/user-attachments/assets/6e75794f-3d7e-4b1b-97d4-c06ffdd21e09" />
+
+
 ## 🔁 Tareas definidas para complementar el taller
 
 Las responsabilidades acordadas entre los miembros del equipo se distribuyeron de la siguiente manera:
