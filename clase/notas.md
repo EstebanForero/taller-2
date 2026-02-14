@@ -1,13 +1,13 @@
-# 🗒️ Registro de Trabajo en Clase - Taller X
+# 🗒️ Registro de Trabajo en Clase - Taller 2
 
 ## 📆 Fecha de la sesión
-2026 14 de febrero
+Sábado, 14 de febrero de 2026
 
 ## 👥 Integrantes presentes
-- Santiago Sabogal Millan
-- Carlos Cruz Pavas
-- Juan Felipe Cepeda Uribe
-- Esteban Fernando Forero Montejo
+- Santiago Sabogal Millan (santiagoSaMi)
+- Carlos David Cruz Pavas (CarlosDaCruz)
+- Juan Felipe Cepeda Uribe ()
+- Esteban Fernando Forero Montejo (EstebanForero)
 
 ## 🧠 Actividades realizadas en clase
 
@@ -25,24 +25,19 @@ Decidimos las entidades que vamos a diagramar, como lo son:
 + Paciente
 + Factura
 
-Junto a los atributos que cada una va a tener
+Junto a los atributos que cada una va a tener.
 
 - ¿Qué herramientas se usaron (papel, pizarra, draw.io, Astah)?
 
-Utilizamos para el diagrama entidad relacion (ERD) la aplicación web Mermaid. Para el _sketch_, utilizamos una aplicación de dibujo y para el modelo entidad-relación usamos draw.io.
+Utilizamos para el diagrama entidad-relación (ERD) la aplicación web Mermaid. Para el _sketch_, utilizamos una aplicación de dibujo y para el modelo entidad-relación usamos draw.io.
 
 - ¿Qué parte del trabajo se alcanzó a desarrollar?
 
-Desarrollamos el diagrama entidad relacion, y el modelado entidad relacion
+Desarrollamos el diagrama entidad relación, y el modelado entidad-relación.
 
 ## 🧩 Boceto inicial del modelo
 
 <img width="845" height="1280" alt="image" src="https://github.com/user-attachments/assets/547cb7db-a64d-4c52-a8b8-4ece9ac56f0d" />
-
-
-## Diagrama Entidad Relacion (ERD)
-
-<img width="1412" height="886" alt="image" src="https://github.com/user-attachments/assets/6e75794f-3d7e-4b1b-97d4-c06ffdd21e09" />
 
 
 ## 🔁 Tareas definidas para complementar el taller
