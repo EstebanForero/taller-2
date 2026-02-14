@@ -14,16 +14,17 @@ Sábado, 14 de febrero de 2026
 Describa brevemente qué se hizo durante la sesión:
 
 - ¿Qué se discutió con el equipo?
-Discutimos el formato en el que se va a presentar y las herramientas a utilizar, decidimos, que mientras se hace el diagrama ERD, se va a ir adaptandolo a el Modelo De Entidad de Relaciones
+Discutimos el formato en el que se va a presentar y las herramientas a utilizar, decidimos, que mientras se hace el diagrama ERD, se va a ir adaptándolo al Modelo De Entidad de Relaciones.
 
 - ¿Qué decisiones de modelado se tomaron?
 Decidimos las entidades que vamos a diagramar, como lo son:
 
-+ Especialidad
-+ Cita
-+ Medico
-+ Paciente
-+ Factura
++ Especialidades
++ Citas
++ Médicos
++ Pacientes
++ Facturas
++ Medicos_especialidades
 
 Junto a los atributos que cada una va a tener.
 
@@ -33,7 +34,7 @@ Utilizamos para el diagrama entidad-relación (ERD) la aplicación web Mermaid. 
 
 - ¿Qué parte del trabajo se alcanzó a desarrollar?
 
-Desarrollamos el diagrama entidad relación, y el modelado entidad-relación.
+Desarrollamos el diagrama entidad-relación, y el modelado entidad-relación.
 
 ## 🧩 Boceto inicial del modelo
 
