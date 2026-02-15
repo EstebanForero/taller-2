@@ -38,11 +38,15 @@ Desarrollamos el diagrama entidad-relación, y el modelado entidad-relación.
 
 ## 🧩 Boceto inicial del modelo
 
-<img width="845" height="1280" alt="image" src="https://github.com/user-attachments/assets/547cb7db-a64d-4c52-a8b8-4ece9ac56f0d" />
+<img width="882" height="1280" alt="image" src="https://github.com/user-attachments/assets/34e029c9-fbcb-45c9-bc5e-25107b69ac88" />
 
 ## Diagrama Entidad Relacion 
 
-<img width="1412" height="886" alt="image" src="https://github.com/user-attachments/assets/c3ffdfbc-c4ff-4536-b05b-9d2472bf83e1" />
+<img width="493" height="899" alt="image" src="https://github.com/user-attachments/assets/d9a78064-6ffb-4006-9dbe-f16f43fca33c" />
+
+## Modelo Entidad Relacion
+
+<img width="1638" height="1552" alt="image" src="https://github.com/user-attachments/assets/7e0c730f-c843-4a3e-944f-d1c142785341" />
 
 
 ## 🔁 Tareas definidas para complementar el taller
