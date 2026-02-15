@@ -44,6 +44,10 @@ Desarrollamos el diagrama entidad-relación, y el modelado entidad-relación.
 
 <img width="1412" height="886" alt="image" src="https://github.com/user-attachments/assets/c3ffdfbc-c4ff-4536-b05b-9d2472bf83e1" />
 
+## Modelo Entidad Relacion
+
+<img width="1638" height="1552" alt="image" src="https://github.com/user-attachments/assets/7e0c730f-c843-4a3e-944f-d1c142785341" />
+
 
 ## 🔁 Tareas definidas para complementar el taller
 
