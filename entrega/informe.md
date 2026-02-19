@@ -1,7 +1,7 @@
 # 📄 Informe Técnico del Taller
 
-## 🔖 Nombre del Taller
-_Taller 2- [Nombre completo del taller]_
+## Modelo de Información y Diagrama de Contexto
+_Taller 2- Modelo de Información y Diagrama de Contexto_
 
 ## 👥 Integrantes del equipo
 - Santiago Sabogal Millan (santiagoSaMi)
