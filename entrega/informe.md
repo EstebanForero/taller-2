@@ -12,9 +12,9 @@
 - Esteban Fernando Forero Montejo (`EstebanForero`)
 
 ## Contexto del proyecto
-El proyecto se centra en la actualización de la **Encuesta de Autoevaluación Institucional por Programas** de la Dirección de Desarrollo Estratégico.
+El proyecto se centra en la actualización de la **Encuesta de Autoevaluación Institucional por Programas** de la Dirección de Desarrollo Estratégico en la Universidad De La Sabana.
 
-En la situación actual, el proceso es manual y depende principalmente de comparación entre el PDF del CNA y un archivo Excel consolidado en OneDrive. La revisión se hace pregunta por pregunta, marcando cambios por colores (nuevas, modificadas, eliminadas), y luego se envía al proveedor externo que genera los enlaces de aplicación por público.
+En la situación actual, el proceso es manual y depende principalmente de comparación entre el PDF del CNA y un archivo Excel que esta en OneDrive. La revisión se hace pregunta por pregunta, marcando cambios por colores (nuevas, modificadas, eliminadas), y luego se envía al proveedor externo que genera los enlaces de aplicación por público y permite a la audiencia llenar la encuesta.
 
 ## Problema identificado
 - La actualización y validación requiere jornadas extensas de revisión manual.
@@ -30,7 +30,7 @@ Estructurar la información del proceso para:
 - organizar la publicación de enlaces por proveedor y por público objetivo.
 
 ## Modelo de información del cliente real
-El modelo final cubre los siguientes componentes:
+El modelo final abarca los siguientes componentes (que son parte de la entidades de negocio del problema):
 - ciclo de encuesta,
 - instrumentos,
 - preguntas y estado de cada pregunta,
@@ -56,8 +56,8 @@ Decisiones principales del modelo:
 - `REVISION` y `CAMBIO` se separaron para diferenciar la sesión de revisión del detalle de cada ajuste.
 - `CAMBIO` registra fecha, tipo de cambio y detalle anterior/nuevo para conservar trazabilidad.
 - `PARTICIPACION` permite registrar quién participó en cada revisión y con qué rol.
-- `ARCHIVO_CONSOLIDADO` incorpora fecha de versión y `hash` para control documental.
-- `ENLACE_ENCUESTA` permite manejar varios enlaces por instrumento según proveedor y público.
+- `ARCHIVO_CONSOLIDADO` incorpora fecha de versión y `hash` para control documental (requerimiento).
+- `ENLACE_ENCUESTA` permite tener varios enlaces por instrumento según proveedor y público.
 
 ## Diagrama de contexto de negocio
 El sistema central definido es la plataforma de gestión de encuestas institucionales.
