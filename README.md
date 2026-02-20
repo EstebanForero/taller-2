@@ -1,6 +1,10 @@
 # Taller 2 - Modelo de Información y Diagrama de Contexto
 
-Repositorio del Taller 2 del curso **Arquitectura Empresarial** (Universidad de La Sabana).
+## Integrantes
+- Santiago Sabogal Millan (`santiagoSaMi`)
+- Carlos David Cruz Pavas (`CarlosDaCruz`)
+- Juan Felipe Cepeda Uribe
+- Esteban Fernando Forero Montejo (`EstebanForero`)
 
 ## Estructura
 
