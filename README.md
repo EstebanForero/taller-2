@@ -1,4 +1,4 @@
-# Taller 2 - Modelo de Información y Diagrama de Contexto
+# Taller 2 - Modelo de Entidad Relacion
 
 ## Integrantes
 - Santiago Sabogal Millan (`santiagoSaMi`)
