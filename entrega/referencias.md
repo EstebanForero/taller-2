@@ -20,9 +20,6 @@ El diagrama de contexto define el límite del sistema como una sola caja funcion
 
 ## 3. Relación con casos reales de industria
 
-### Salud
-En sistemas hospitalarios, la combinación ERD + contexto es común para modelar entidades clínicas (paciente, cita, médico, factura) y delimitar interacciones con terceros como aseguradoras y servicios administrativos.
-
 ### Educación / encuestas
 En dominios educativos, los modelos de encuestas exigen flexibilidad para preguntas de distintos tipos, estructura modular, versionamiento y trazabilidad. El patrón observado en literatura coincide con la solución del equipo: instrumento-pregunta-revisión-cambio-publicación.
 
@@ -34,7 +31,5 @@ La combinación Chen + ERD + diagrama de contexto es adecuada para el cliente re
 - Trazabilidad y gobernanza del ciclo de vida de instrumentos de encuesta.
 
 ## Referencias (APA)
-- AL-Odiab, A. A. (2018). *Hospital system* [Proyecto de grado]. Universidad de Majmaah. https://www.mu.edu.sa/sites/default/files/content/2018/12/HOSPITAL%20SYSTEM..pdf
 - Chen, P. P. (1976). The entity-relationship model-toward a unified view of data. *ACM Transactions on Database Systems, 1*(1), 9-36. https://doi.org/10.1145/320434.320440
 - John, K. (2022). *Designing a database schema for survey questions* [Tesis de maestría, Otto-von-Guericke-Universitat Magdeburg]. https://wwwiti.cs.uni-magdeburg.de/iti_db/publikationen/ps/auto/thesisJohn22.pdf
-- Sakra, A. A., & Mosa, D. T. (2016). Data flow diagrams of an electronic medical record system in Mansoura Hospital. *International Journal of Computer Techniques, 3*(4), 1-10. https://rajpub.com/index.php/ijct/article/view/1532ijct

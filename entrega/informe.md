@@ -11,20 +11,33 @@
 - Juan Felipe Cepeda Uribe
 - Esteban Fernando Forero Montejo (`EstebanForero`)
 
-## Desarrollo del trabajo
-Durante la sesión de clase se trabajó con el caso base de la Clínica Salud Viva para consolidar la lógica de entidades, relaciones y flujos de información. A partir de ese ejercicio, en la entrega se realizó la adaptación al dominio del cliente real: el proceso institucional de construcción, revisión y publicación de encuestas.
+## Contexto del proyecto
+El proyecto se centra en la actualización de la **Encuesta de Autoevaluación Institucional por Programas** de la Dirección de Desarrollo Estratégico.
 
-El enfoque del equipo fue construir un modelo claro y completo, capaz de representar el ciclo de vida del instrumento desde su diseño hasta su publicación para públicos específicos.
+En la situación actual, el proceso es manual y depende principalmente de comparación entre el PDF del CNA y un archivo Excel consolidado en OneDrive. La revisión se hace pregunta por pregunta, marcando cambios por colores (nuevas, modificadas, eliminadas), y luego se envía al proveedor externo que genera los enlaces de aplicación por público.
+
+## Problema identificado
+- La actualización y validación requiere jornadas extensas de revisión manual.
+- Existe riesgo de omitir preguntas o perder trazabilidad de cambios.
+- La validación de enlaces del proveedor también es manual y repetitiva.
+- El proceso depende de pocas personas, lo que aumenta el riesgo operativo.
+
+## Objetivo del modelado
+Estructurar la información del proceso para:
+- mantener trazabilidad de cambios por ciclo,
+- registrar responsables y revisiones,
+- controlar versiones de archivos consolidados,
+- organizar la publicación de enlaces por proveedor y por público objetivo.
 
 ## Modelo de información del cliente real
 El modelo final cubre los siguientes componentes:
 - ciclo de encuesta,
 - instrumentos,
-- preguntas,
+- preguntas y estado de cada pregunta,
 - revisiones y cambios,
 - archivos consolidados,
-- proveedores de plataforma,
-- enlaces de encuesta y públicos objetivo.
+- proveedores de encuesta,
+- enlaces y públicos objetivo.
 
 Entidades incluidas:
 - `USUARIO`
@@ -40,26 +53,30 @@ Entidades incluidas:
 - `PARTICIPACION`
 
 Decisiones principales del modelo:
-- `REVISION` y `CAMBIO` se modelaron por separado para diferenciar la sesión de revisión de los cambios puntuales.
-- `PARTICIPACION` resuelve la relación entre usuarios y revisiones y permite registrar el rol de cada participante.
-- `ARCHIVO_CONSOLIDADO` incluye control de versión mediante `hash`.
-- `ENLACE_ENCUESTA` se mantuvo independiente para soportar múltiples proveedores y múltiples públicos por instrumento.
+- `REVISION` y `CAMBIO` se separaron para diferenciar la sesión de revisión del detalle de cada ajuste.
+- `CAMBIO` registra fecha, tipo de cambio y detalle anterior/nuevo para conservar trazabilidad.
+- `PARTICIPACION` permite registrar quién participó en cada revisión y con qué rol.
+- `ARCHIVO_CONSOLIDADO` incorpora fecha de versión y `hash` para control documental.
+- `ENLACE_ENCUESTA` permite manejar varios enlaces por instrumento según proveedor y público.
 
 ## Diagrama de contexto de negocio
 El sistema central definido es la plataforma de gestión de encuestas institucionales.
 
 Actores y sistemas externos considerados:
-- usuario interno (administrador/revisor),
+- usuario interno (administrador, revisor, aprobador),
 - proveedor externo de encuestas,
-- público objetivo (estudiantes, profesores, administrativos),
-- entorno documental (OneDrive/Teams).
+- públicos objetivo (pregrado, posgrado, profesores, administrativos y otros grupos definidos por la dirección),
+- entorno documental institucional (OneDrive/Teams),
+- lineamientos del CNA como fuente normativa de entrada.
 
 Flujos principales:
-- creación y edición de instrumentos/preguntas,
-- registro de revisiones y cambios,
-- almacenamiento de archivos consolidados,
-- publicación de enlaces por proveedor,
-- distribución de enlaces al público objetivo.
+- recepción y análisis de lineamientos CNA por ciclo,
+- actualización de instrumentos y preguntas,
+- registro de revisiones y cambios con responsable,
+- generación de archivo consolidado versionado,
+- envío de consolidado al proveedor,
+- recepción y validación de enlaces,
+- distribución de enlaces por público objetivo.
 
 ## Entregables
 - ERD final: `entrega/ERD_Proyecto.jpg`
