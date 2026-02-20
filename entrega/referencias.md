@@ -1,15 +1,13 @@
 # Investigación complementaria: ER (Chen) y diagrama de contexto en casos reales
 
-Esta investigación complementa la Parte 2 del taller (aplicación al cliente real: gestión de ciclos de encuestas, instrumentos, preguntas, revisiones y publicación por públicos objetivo). Se justifica el uso combinado de modelo entidad-relación conceptual (notación Chen) y diagrama de contexto de negocio para delimitar fronteras del sistema y flujos de información.
-
 ## 1. Modelo Entidad-Relación en notación Chen
 
 El enfoque de Chen (1976) modela explícitamente entidades, atributos y relaciones como elementos semánticos del dominio. En dominios con trazabilidad, revisión y auditoría, esta notación es útil porque:
 - Hace visibles las relaciones de negocio y su significado.
 - Facilita discutir el modelo con actores no técnicos.
-- Permite transformar a modelo relacional sin perder intención conceptual.
+- Permite transformar a modelo relacional sin perder el significado detras de este.
 
-En el caso del cliente real, el modelo requiere representar estados de instrumentos, cambios por revisión, responsables y publicación externa. Por eso, el uso conceptual tipo Chen complementa bien un ERD más físico (Crow's Foot).
+En el caso del cliente real, el modelo requiere representar estados de instrumentos, cambios por revisión, responsables y publicación externa. Por eso, el uso conceptual tipo Chen nos permite discutir con el cliente las entidades y verificar la validez de estas.
 
 ## 2. Diagrama de contexto (Level-0)
 
@@ -21,7 +19,7 @@ El diagrama de contexto define el límite del sistema como una sola caja funcion
 ## 3. Relación con casos reales de industria
 
 ### Educación / encuestas
-En dominios educativos, los modelos de encuestas exigen flexibilidad para preguntas de distintos tipos, estructura modular, versionamiento y trazabilidad. El patrón observado en literatura coincide con la solución del equipo: instrumento-pregunta-revisión-cambio-publicación.
+En dominios educativos, los modelos de encuestas exigen flexibilidad para preguntas de distintos tipos, estructura modular, versionamiento y trazabilidad. El patrón observado en la vida real coincide con la solución del equipo: instrumento-pregunta-revisión-cambio-publicación.
 
 ## 4. Conclusión aplicada al taller
 
