@@ -83,3 +83,8 @@ Flujos principales:
 - Modelo conceptual: `entrega/Modelo-entidad-relacion.png`
 - Informe técnico: `entrega/informe.md`
 - Investigación y referencias: `entrega/referencias.md`
+
+<img width="8668" height="6468" alt="image" src="https://github.com/user-attachments/assets/a1b9cc65-3367-4110-8436-076f78335e26" />
+
+
+<img width="1090" height="948" alt="image" src="https://github.com/user-attachments/assets/556f33aa-5c3b-40cd-9db6-4c013475f6d9" />
