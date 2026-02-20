@@ -1,8 +1,10 @@
 # Investigación complementaria: notación Chen en modelos entidad-relación
 
+Nota: se da en la notacion chen, ya que despues de investigar, esta notacion es la que se uso y se enseño en clase.
+
 Esta investigación se centra en la notación Chen aplicada al modelo del cliente real (El proyecto que se nos fue assignado por la universidad de la sabana): actualización de la Encuesta de Autoevaluación Institucional por Programas, con trazabilidad de cambios, revisiones, publicación por proveedor y segmentación por públicos objetivo.
 
-El modelo trabajado por el equipo incluye entidades como `USUARIO`, `CICLO_ENCUESTA`, `INSTRUMENTO`, `PREGUNTA`, `CAMBIO`, `REVISION`, `ARCHIVO_CONSOLIDADO`, `PROVEEDOR`, `ENLACE_ENCUESTA`, `PUBLICO` y `PARTICIPACION`, junto con relaciones nombradas como `contiene`, `tiene`, `genera`, `realiza`, `publica_por` y `recibe`.
+El modelo trabajado por nosotros incluye entidades como `USUARIO`, `CICLO_ENCUESTA`, `INSTRUMENTO`, `PREGUNTA`, `CAMBIO`, `REVISION`, `ARCHIVO_CONSOLIDADO`, `PROVEEDOR`, `ENLACE_ENCUESTA`, `PUBLICO` y `PARTICIPACION`, junto con relaciones nombradas como `contiene`, `tiene`, `genera`, `realiza`, `publica_por` y `recibe`.
 
 ## 1. Elementos principales de la notación Chen
 
@@ -22,7 +24,7 @@ Tipos de entidad usados o relevantes en este proyecto:
 
 ## 2. Funcionamiento de las relaciones en Chen
 
-En Chen, la relación no es solo una línea; es un elemento explícito del modelo. Esto aporta claridad de negocio.
+En Chen, la relación no es solo una línea si no que esta es un elemento explícito del modelo. Esto aporta claridad de negocio.
 
 Ejemplos del modelo:
 - `CICLO_ENCUESTA (1) -- contiene -- INSTRUMENTO (0..N)`
@@ -31,7 +33,7 @@ Ejemplos del modelo:
 - `PROVEEDOR (1) -- genera_enlace -- ENLACE_ENCUESTA (0..N)`
 - `PUBLICO (1) -- recibe -- ENLACE_ENCUESTA (0..N)`
 
-En términos prácticos, esta forma de modelar ayuda a leer reglas del negocio como frases completas y permite verificar más fácil si falta alguna relación importante para la operación.
+En términos prácticos, esta forma de modelar ayuda a leer reglas del negocio como frases completas y permite verificar más fácil si falta alguna relación importante para la operación, haciendo mas facil la intervencion de usuarios o clientes no tecnicos como stakehoders, o interesados en el negocio.
 
 ## 3. Diferencias con Crow's Foot y razón de uso en este taller
 
