@@ -1,6 +1,6 @@
 # Investigación complementaria: notación Chen en modelos entidad-relación
 
-Esta investigación se centra en la notación Chen aplicada al modelo del cliente real: actualización de la Encuesta de Autoevaluación Institucional por Programas, con trazabilidad de cambios, revisiones, publicación por proveedor y segmentación por públicos objetivo.
+Esta investigación se centra en la notación Chen aplicada al modelo del cliente real (El proyecto que se nos fue assignado por la universidad de la sabana): actualización de la Encuesta de Autoevaluación Institucional por Programas, con trazabilidad de cambios, revisiones, publicación por proveedor y segmentación por públicos objetivo.
 
 El modelo trabajado por el equipo incluye entidades como `USUARIO`, `CICLO_ENCUESTA`, `INSTRUMENTO`, `PREGUNTA`, `CAMBIO`, `REVISION`, `ARCHIVO_CONSOLIDADO`, `PROVEEDOR`, `ENLACE_ENCUESTA`, `PUBLICO` y `PARTICIPACION`, junto con relaciones nombradas como `contiene`, `tiene`, `genera`, `realiza`, `publica_por` y `recibe`.
 
