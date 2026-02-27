@@ -84,6 +84,5 @@ Flujos principales:
 - Informe técnico: `entrega/informe.md`
 - Investigación y referencias: `entrega/referencias.md`
 
+Imagen ERD
 <img width="779" height="952" alt="image" src="https://github.com/user-attachments/assets/468f9e91-aa88-48fa-86ce-b09ee71f2e60" />
-
-<img width="1090" height="948" alt="image" src="https://github.com/user-attachments/assets/556f33aa-5c3b-40cd-9db6-4c013475f6d9" />
