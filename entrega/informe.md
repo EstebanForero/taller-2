@@ -24,40 +24,156 @@ En la situación actual, el proceso es manual y depende principalmente de compar
 
 ## Objetivo del modelado
 Estructurar la información del proceso para:
-- mantener trazabilidad de cambios por ciclo,
-- registrar responsables y revisiones,
-- controlar versiones de archivos consolidados,
-- organizar la publicación de enlaces por proveedor y por público objetivo.
 
-## Modelo de información del cliente real
-El modelo final abarca los siguientes componentes (que son parte de la entidades de negocio del problema):
-- ciclo de encuesta,
-- instrumentos,
-- preguntas y estado de cada pregunta,
-- revisiones y cambios,
-- archivos consolidados,
-- proveedores de encuesta,
-- enlaces y públicos objetivo.
+- mantener trazabilidad real de las preguntas entre ciclos CNA,
+- reconstruir exactamente qué cuestionario existía en cada revisión,
+- registrar responsables de los cambios,
+- organizar la generación y validación de enlaces de encuesta por público,
+- eliminar dependencias del Excel como fuente de verdad.
 
-Entidades incluidas:
+El sistema no modela archivos como entidades de negocio.  
+Los archivos (Excel / formularios) se consideran **artefactos generados**, derivables desde la base de datos.
+
+---
+
+## Modelo de información real (interpretación del proceso)
+El proceso no gira alrededor de archivos ni instrumentos,
+sino alrededor de **preguntas versionadas que se publican en cada ciclo**.
+
+El modelo final representa:
+
+- ciclos CNA (ediciones del proceso),
+- preguntas base,
+- historial de cambios de cada pregunta,
+- qué versión de la pregunta fue publicada en cada ciclo,
+- públicos objetivo a los que aplica la pregunta,
+- responsables de modificaciones,
+- enlaces generados para diligenciamiento,
+- validaciones de publicación.
+
+---
+
+## Conceptos clave del dominio
+
+### Ciclo
+Equivale a una edición del proceso de autoevaluación  
+(Ej: CNA 2024, CNA 2025, CNA 2026).
+
+Un ciclo es una **fotografía oficial publicada** del banco de preguntas.
+
+---
+
+### Pregunta
+Es la entidad central del sistema.
+
+Representa el identificador permanente de una pregunta:
+- su código nunca cambia,
+- su significado conceptual permanece,
+- pero su contenido puede evolucionar.
+
+La pregunta NO guarda texto directamente.
+
+---
+
+### Historial de pregunta
+Cada modificación crea una nueva versión histórica.
+
+Permite saber:
+- cómo era la pregunta en cualquier momento,
+- quién la cambió,
+- qué cambió,
+- cuándo cambió.
+
+Esto reemplaza completamente la antigua entidad `CAMBIO`.
+
+No se registran cambios como eventos aislados,
+sino como estados históricos reconstruibles.
+
+---
+
+### Publicación de pregunta en ciclo
+Un ciclo no copia preguntas:
+referencia una versión específica del historial.
+
+Esto permite:
+
+- detectar preguntas nuevas
+- detectar eliminadas
+- detectar modificadas
+- reconstruir el cuestionario exacto
+- comparar ciclos automáticamente
+
+---
+
+### Público objetivo
+Define para quién aplica la pregunta:
+
+- estudiantes
+- profesores
+- administrativos
+- egresados
+- directivos
+- etc.
+
+La pertenencia al público es parte de la publicación en ciclo,
+no de la pregunta base.
+
+---
+
+### Enlace de encuesta
+Representa la encuesta publicada.
+
+Se genera por combinación:
+
+ciclo + público
+
+No depende del proveedor específico como entidad de negocio.
+El proveedor es solo un medio técnico de distribución.
+
+---
+
+### Verificación
+Registra la validación del enlace publicado:
+- quién verificó
+- cuándo
+- si funcionaba
+- observaciones
+
+---
+
+## Entidades resultantes
+
+El modelo actualizado queda compuesto por:
+
 - `USUARIO`
-- `CICLO_ENCUESTA`
-- `INSTRUMENTO`
+- `CICLO`
 - `PREGUNTA`
-- `CAMBIO`
-- `REVISION`
-- `ARCHIVO_CONSOLIDADO`
-- `PROVEEDOR`
-- `ENLACE_ENCUESTA`
+- `PREGUNTA_HISTORIAL`
+- `PUBLICACION_PREGUNTA`
 - `PUBLICO`
-- `PARTICIPACION`
+- `ENLACE`
+- `VERIFICACION`
 
-Decisiones principales del modelo:
-- `REVISION` y `CAMBIO` se separaron para diferenciar la sesión de revisión del detalle de cada ajuste.
-- `CAMBIO` registra fecha, tipo de cambio y detalle anterior/nuevo para conservar trazabilidad.
-- `PARTICIPACION` permite registrar quién participó en cada revisión y con qué rol.
-- `ARCHIVO_CONSOLIDADO` incorpora fecha de versión y `hash` para control documental (requerimiento).
-- `ENLACE_ENCUESTA` permite tener varios enlaces por instrumento según proveedor y público.
+---
+
+## Decisiones de modelado
+
+### Eliminadas
+- CAMBIO → reemplazado por historial versionado
+- INSTRUMENTO → es derivable (consulta por público)
+- ARCHIVO_CONSOLIDADO → es un reporte generado
+- PROVEEDOR → agente externo sin valor de negocio
+- PARTICIPACION → el responsable queda en cada cambio histórico
+
+---
+
+### Principios adoptados
+
+1. La base de datos es la fuente de verdad, no el Excel.
+2. Un ciclo es una fotografía, no un proceso.
+3. Los cambios se reconstruyen por estados, no por eventos manuales.
+4. Un cuestionario es una consulta, no una entidad.
+5. Los enlaces representan la publicación oficial del ciclo.
 
 ## Diagrama de contexto de negocio
 El sistema central definido es la plataforma de gestión de encuestas institucionales.
@@ -86,3 +202,7 @@ Flujos principales:
 
 Imagen ERD
 <img width="779" height="952" alt="image" src="https://github.com/user-attachments/assets/468f9e91-aa88-48fa-86ce-b09ee71f2e60" />
+
+Imagen Modelo entidad relacion
+<img width="9480" height="7069" alt="image" src="https://github.com/user-attachments/assets/4f556754-8fde-440d-a75a-88eb4513157e" />
+
