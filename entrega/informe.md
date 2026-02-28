@@ -256,6 +256,11 @@ Flujos principales:
 - Informe técnico: `entrega/informe.md`
 - Investigación y referencias: `entrega/referencias.md`
 
+- Imagen diagrama de contexto
+
+<img width="2331" height="1281" alt="image" src="https://github.com/user-attachments/assets/9759fc37-b4e8-44ae-ba71-a29af9cc3b81" />
+
+
 Imagen ERD
 <img width="779" height="952" alt="image" src="https://github.com/user-attachments/assets/468f9e91-aa88-48fa-86ce-b09ee71f2e60" />
 
