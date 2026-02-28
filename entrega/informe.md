@@ -23,157 +23,213 @@ En la situación actual, el proceso es manual y depende principalmente de compar
 - El proceso depende de pocas personas, lo que aumenta el riesgo operativo.
 
 ## Objetivo del modelado
-Estructurar la información del proceso para:
 
-- mantener trazabilidad real de las preguntas entre ciclos CNA,
-- reconstruir exactamente qué cuestionario existía en cada revisión,
-- registrar responsables de los cambios,
-- organizar la generación y validación de enlaces de encuesta por público,
-- eliminar dependencias del Excel como fuente de verdad.
+Estructurar la información del proceso de autoevaluación institucional para:
 
-El sistema no modela archivos como entidades de negocio.  
-Los archivos (Excel / formularios) se consideran **artefactos generados**, derivables desde la base de datos.
+- mantener un **banco de preguntas estructurado y consistente**,
+- organizar las preguntas según la jerarquía oficial CNA,
+- asignar preguntas a públicos y subpúblicos específicos,
+- controlar el estado operativo de cada pregunta (nueva, modificada, eliminada),
+- estandarizar convenciones de respuesta,
+- permitir generar instrumentos, reportes y archivos derivados directamente desde la base de datos.
 
----
+La base de datos es la **única fuente de verdad**.  
+Los archivos Excel o formularios son artefactos generados a partir de consultas.
 
-## Modelo de información real (interpretación del proceso)
-El proceso no gira alrededor de archivos ni instrumentos,
-sino alrededor de **preguntas versionadas que se publican en cada ciclo**.
+## Modelo de información del dominio
 
-El modelo final representa:
+El modelo representa el estado actual del banco de preguntas, incluyendo:
 
-- ciclos CNA (ediciones del proceso),
-- preguntas base,
-- historial de cambios de cada pregunta,
-- qué versión de la pregunta fue publicada en cada ciclo,
-- públicos objetivo a los que aplica la pregunta,
-- responsables de modificaciones,
-- enlaces generados para diligenciamiento,
-- validaciones de publicación.
+- estructura CNA (Factor → Característica → Aspecto),
+- públicos y subpúblicos,
+- convenciones de respuesta y sus opciones,
+- preguntas activas con control de cambios,
+- distribución de preguntas por subaudiencia,
+- verificación con el proveedor.
 
----
+No se modelan archivos ni instrumentos como entidades independientes.
 
 ## Conceptos clave del dominio
 
-### Ciclo
-Equivale a una edición del proceso de autoevaluación  
-(Ej: CNA 2024, CNA 2025, CNA 2026).
+### Estructura CNA
 
-Un ciclo es una **fotografía oficial publicada** del banco de preguntas.
+Permite clasificar las preguntas conforme al lineamiento oficial.
 
----
+La jerarquía está compuesta por:
+
+- **Guía CNA**
+- **Factor**
+- **Característica**
+- **Aspecto**
+
+Cada pregunta pertenece a un aspecto específico.
+
+### Público y Subpúblico
+
+Define a quién aplica una pregunta.
+
+- **Grupo de público**: categoría general (Ej. Estudiantes, Profesores).
+- **Subpúblico (Subaudiencia)**: segmentación específica (Ej. Pregrado, Doctorado).
+
+Las preguntas pueden aplicar a múltiples subpúblicos.
+
+### Convención de respuesta
+
+Define el conjunto de opciones que se presenta al usuario final.
+
+- Una convención agrupa opciones.
+- Cada opción tiene valor, etiqueta y orden.
+
+Esto evita inconsistencias en escalas y formatos.
 
 ### Pregunta
+
 Es la entidad central del sistema.
 
-Representa el identificador permanente de una pregunta:
-- su código nunca cambia,
-- su significado conceptual permanece,
-- pero su contenido puede evolucionar.
+Representa una pregunta vigente en el banco actual.
 
-La pregunta NO guarda texto directamente.
+Incluye:
 
----
+- clasificación CNA,
+- tipo de pregunta,
+- convención de respuesta,
+- texto actual,
+- observaciones internas.
 
-### Historial de pregunta
-Cada modificación crea una nueva versión histórica.
+Además contiene campos de control operativo:
 
-Permite saber:
-- cómo era la pregunta en cualquier momento,
-- quién la cambió,
-- qué cambió,
-- cuándo cambió.
+- `is_new` → indica si fue añadida recientemente.
+- `is_changed` → indica si fue modificada.
+- `is_deleted` → indica si fue retirada (soft delete).
+- `provider_verified` → indica si fue validada con el proveedor.
 
-Esto reemplaza completamente la antigua entidad `CAMBIO`.
+Registra responsable y fecha de última modificación.
 
-No se registran cambios como eventos aislados,
-sino como estados históricos reconstruibles.
+### Distribución por subpúblico
 
----
+La asignación de preguntas a subpúblicos se gestiona mediante una relación N:M.
 
-### Publicación de pregunta en ciclo
-Un ciclo no copia preguntas:
-referencia una versión específica del historial.
+Para cada subpúblico se puede definir:
 
-Esto permite:
+- orden de aparición,
+- si la pregunta es obligatoria.
 
-- detectar preguntas nuevas
-- detectar eliminadas
-- detectar modificadas
-- reconstruir el cuestionario exacto
-- comparar ciclos automáticamente
+El “instrumento” es una consulta derivada de esta relación.
 
----
 
-### Público objetivo
-Define para quién aplica la pregunta:
+## Entidades del modelo
 
-- estudiantes
-- profesores
-- administrativos
-- egresados
-- directivos
-- etc.
+- `USERS`
+- `CNA_GUIDELINES`
+- `CNA_FACTORS`
+- `CNA_CHARACTERISTICS`
+- `CNA_ASPECTS`
+- `AUDIENCE_GROUPS`
+- `AUDIENCE_SUBAUDIENCES`
+- `QUESTION_TYPES`
+- `RESPONSE_CONVENTIONS`
+- `RESPONSE_OPTIONS`
+- `QUESTIONS`
+- `QUESTION_SUBAUDIENCE`
 
-La pertenencia al público es parte de la publicación en ciclo,
-no de la pregunta base.
+## Diccionario de datos
 
----
+### USERS
 
-### Enlace de encuesta
-Representa la encuesta publicada.
+Responsables de modificación.
 
-Se genera por combinación:
+- `id` (PK)
+- `name`
+- `email`
+- `created_at`
 
-ciclo + público
+### CNA_GUIDELINES
 
-No depende del proveedor específico como entidad de negocio.
-El proveedor es solo un medio técnico de distribución.
+Metadatos del documento CNA.
 
----
+- `id` (PK)
+- `title`
+- `publication_date`
+- `file_reference`
 
-### Verificación
-Registra la validación del enlace publicado:
-- quién verificó
-- cuándo
-- si funcionaba
-- observaciones
+### CNA_FACTORS
 
----
+- `id` (PK)
+- `guideline_id` (FK)
+- `code`
+- `name`
 
-## Entidades resultantes
+### CNA_CHARACTERISTICS
 
-El modelo actualizado queda compuesto por:
+- `id` (PK)
+- `factor_id` (FK)
+- `code`
+- `name`
 
-- `USUARIO`
-- `CICLO`
-- `PREGUNTA`
-- `PREGUNTA_HISTORIAL`
-- `PUBLICACION_PREGUNTA`
-- `PUBLICO`
-- `ENLACE`
-- `VERIFICACION`
+### CNA_ASPECTS
 
----
+- `id` (PK)
+- `characteristic_id` (FK)
+- `code`
+- `name`
 
-## Decisiones de modelado
+### AUDIENCE_GROUPS
 
-### Eliminadas
-- CAMBIO → reemplazado por historial versionado
-- INSTRUMENTO → es derivable (consulta por público)
-- ARCHIVO_CONSOLIDADO → es un reporte generado
-- PROVEEDOR → agente externo sin valor de negocio
-- PARTICIPACION → el responsable queda en cada cambio histórico
+- `id` (PK)
+- `name`
 
----
+### AUDIENCE_SUBAUDIENCES
 
-### Principios adoptados
+- `id` (PK)
+- `group_id` (FK)
+- `name`
 
-1. La base de datos es la fuente de verdad, no el Excel.
-2. Un ciclo es una fotografía, no un proceso.
-3. Los cambios se reconstruyen por estados, no por eventos manuales.
-4. Un cuestionario es una consulta, no una entidad.
-5. Los enlaces representan la publicación oficial del ciclo.
+### QUESTION_TYPES
+
+- `id` (PK)
+- `name`
+
+### RESPONSE_CONVENTIONS
+
+- `id` (PK)
+- `code`
+- `name`
+- `definition`
+
+### RESPONSE_OPTIONS
+
+- `id` (PK)
+- `convention_id` (FK)
+- `value`
+- `label`
+- `position`
+
+### QUESTIONS
+
+Banco actual de preguntas.
+
+- `id` (PK)
+- `aspect_id` (FK)
+- `question_type_id` (FK)
+- `response_convention_id` (FK)
+- `text`
+- `notes`
+- `is_new`
+- `is_changed`
+- `is_deleted`
+- `provider_verified`
+- `last_modified_by` (FK)
+- `last_modified_at`
+
+### QUESTION_SUBAUDIENCE
+
+Relación entre pregunta y subpúblico.
+
+- `id` (PK)
+- `question_id` (FK)
+- `subaudience_id` (FK)
+- `position`
+- `required_flag`
 
 ## Diagrama de contexto de negocio
 El sistema central definido es la plataforma de gestión de encuestas institucionales.
