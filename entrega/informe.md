@@ -232,23 +232,43 @@ Relación entre pregunta y subpúblico.
 - `required_flag`
 
 ## Diagrama de contexto de negocio
-El sistema central definido es la plataforma de gestión de encuestas institucionales.
 
-Actores y sistemas externos considerados:
-- usuario interno (administrador, revisor, aprobador),
-- proveedor externo de encuestas,
-- públicos objetivo (pregrado, posgrado, profesores, administrativos y otros grupos definidos por la dirección),
-- entorno documental institucional (OneDrive/Teams),
-- lineamientos del CNA como fuente normativa de entrada.
+El sistema central definido es la **Plataforma de gestión de encuestas institucionales**, la cual actúa como punto de integración entre actores internos, entidades normativas y servicios externos.
 
-Flujos principales:
-- recepción y análisis de lineamientos CNA por ciclo,
-- actualización de instrumentos y preguntas,
-- registro de revisiones y cambios con responsable,
-- generación de archivo consolidado versionado,
-- envío de consolidado al proveedor,
-- recepción y validación de enlaces,
-- distribución de enlaces por público objetivo.
+### Actores y sistemas externos considerados
+
+* **Usuario interno DDE** (Administrador, Encargado, Revisor) — interactúa directamente con la plataforma para configurar, validar y gestionar el ciclo de encuestas.
+* **Consejo Nacional de Acreditación (CNA)** — fuente normativa externa que provee lineamientos que alimentan la construcción de los instrumentos.
+* **Proveedor externo de encuestas** — servicio externo al cual se envían los instrumentos y desde el cual se reciben los enlaces de aplicación.
+* **Públicos objetivos** — destinatarios finales de las encuestas (estudiantes, profesores, administrativos y demás grupos definidos institucionalmente).
+* **Microsoft 365** — entorno institucional de comunicación y distribución utilizado para divulgar los enlaces generados.
+
+---
+
+### Flujos principales
+
+1. **Ingreso de lineamientos normativos**
+
+   * El CNA suministra lineamientos que son analizados por el usuario interno dentro de la plataforma.
+
+2. **Gestión interna de instrumentos**
+
+   * El usuario interno crea, ajusta y revisa preguntas e instrumentos de encuesta dentro del sistema.
+   * Se gestionan versiones y validaciones internas.
+
+3. **Envío al proveedor**
+
+   * La plataforma envía el instrumento consolidado al proveedor externo de encuestas.
+
+4. **Recepción de enlaces**
+
+   * El proveedor genera y retorna enlaces de aplicación hacia la plataforma.
+
+5. **Distribución institucional**
+
+   * La plataforma distribuye los enlaces a través de Microsoft 365.
+   * Los enlaces llegan a los públicos objetivos para su diligenciamiento.
+
 
 ## Entregables
 - ERD final: `entrega/ERD_Proyecto.jpg`
